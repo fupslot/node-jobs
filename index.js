@@ -5,6 +5,7 @@ const jobs = require("./lib/jobs");
 const getAllJobs = require("./lib/getAllJobs");
 const createJob = require("./lib/createJob");
 const removeJob = require("./lib/removeJob");
+const { printBanner } = require("./lib/helpers");
 
 const port = parseInt(process.env.PORT) || 3000;
 
@@ -15,7 +16,7 @@ const main = async () => {
   http.post("/jobs/", createJob);
   http.delete("/jobs/:jobId/", removeJob);
 
-  http.listen(port, () => console.log("Start listener on port", port));
+  http.listen(port, printBanner({ port }));
 };
 
 main().catch(console.error);
