@@ -42,22 +42,20 @@ process.on("SIGINT", function () {
 });
 
 function printBanner({ port }) {
-  console.log(`
-  Create Job
+  // Create Job
 
-  curl -XPOST -H "Content-Type: application/json" -d'{"type":"ping", "rule": "*/2 * * * * *"}'  "http://localhost:3000/jobs/"
+  // curl -XPOST -H "Content-Type: application/json" -d'{"type":"ping", "rule": "*/2 * * * * *"}'  "http://localhost:3000/jobs/"
 
-  Delete Job
+  // Delete Job
 
-  curl -XDELETE "http://localhost:3000/jobs/job-1645295567481/" 
+  // curl -XDELETE "http://localhost:3000/jobs/job-1645295567481/"
 
-  Get All Jobs
+  // Get All Jobs
 
-  curl http://localhost:3000/jobs/
+  // curl http://localhost:3000/jobs/
 
-
-  Start listener on port ${port}...
-  `);
+  console.log(`Start listener on port ${port}`);
+  console.log(`Jobs API: http://localhost:${port}/jobs`);
 }
 
 module.exports = {
