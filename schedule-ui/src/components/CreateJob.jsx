@@ -1,4 +1,5 @@
 import React from "react";
+import { useHttp } from "../hooks/useHttp";
 
 const CroneRule = () => {
   return (
@@ -28,7 +29,7 @@ const CroneRule = () => {
   );
 };
 
-const JobType = () => {
+const JobType = ({ scheduledJobs }) => {
   return (
     <div className="flex flex-col">
       <label htmlFor="job-type" className="pb-1 font-bold">
@@ -41,7 +42,7 @@ const JobType = () => {
         className="text-md px-4 py-2 border rounded-md appearance-none form-select"
       >
         <option value="none">Select Job Type</option>
-        <option value="ping">"Ping"</option>
+        {/* {scheduledJobs.lenght && scheduledJobs.map(()<option value="ping">"Ping"</option>} */}
       </select>
     </div>
   );
@@ -59,7 +60,23 @@ const ConfirmButton = () => {
   );
 };
 
+const ScheduledJobs = ({ jobs }) => {
+  if (jobs.lenght == 0) {
+    return <h3>No Scheduled Jobs</h3>;
+  }
+  return (
+    <div>
+      {jobs.map(({ jobId }) => {
+        return <div>{jobId}</div>;
+      })}
+    </div>
+  );
+};
+
 const CreateJob = () => {
+  const [scheduledJobs, isFetching, isError] = useHttp(
+    "http://localhost:5000/jobs/"
+  );
   const onFormSubmit = (evt) => {
     evt.preventDefault();
   };
@@ -76,6 +93,7 @@ const CreateJob = () => {
         <JobType />
         <ConfirmButton />
       </form>
+      <ScheduledJobs jobs={scheduledJobs} />
     </div>
   );
 };
