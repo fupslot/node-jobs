@@ -38,6 +38,10 @@ class Context {
     this.state.push(job);
     return Promise.resolve(job);
   }
+
+  getAllJobTypes() {
+    return Object.keys(tasks.Tasks);
+  }
 }
 
 module.exports = new Context();

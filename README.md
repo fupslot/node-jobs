@@ -21,7 +21,7 @@ DEBUG=jobs yarn start
 Note: Currently the only value for the `type` field is `ping`. This job just prints into a log the current local time .
 
 ```
-curl -XPOST -H "Content-Type: application/json" -d'{"type":"ping", "rule": "*/2 * * * * *"}'  "http://localhost:3000/jobs/"
+curl -XPOST -H "Content-Type: application/json" -d'{"type":"ping", "rule": "*/2 * * * * *"}'  "http://localhost:5000/jobs/"
 
 {"data":{"jobId":"job-1645295567481","type":"ping","rule":"*/2 * * * * *"}}
 ```
@@ -29,7 +29,7 @@ curl -XPOST -H "Content-Type: application/json" -d'{"type":"ping", "rule": "*/2 
 ### Delete Job
 
 ```
-curl -XDELETE "http://localhost:3000/jobs/job-1645295567481/" 
+curl -XDELETE "http://localhost:5000/jobs/job-1645295567481/" 
 
 {"data":{"jobId":"job-1645295567481"}}
 ```
@@ -37,7 +37,12 @@ curl -XDELETE "http://localhost:3000/jobs/job-1645295567481/"
 ### Get All Jobs
 
 ```
-curl http://localhost:3000/jobs/
+curl http://localhost:5000/jobs/
 ```
 
+### Get All Job Types
+
+```
+curl http://localhost:5000/jobs/types/
+```
 

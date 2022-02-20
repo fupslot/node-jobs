@@ -8,4 +8,5 @@ module.exports = {
   isValidType(type) {
     return type in Tasks;
   },
+  Tasks,
 };
