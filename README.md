@@ -8,13 +8,11 @@
 ### Start App
 
 ```
-yarn start
-
-or
-
-DEBUG=jobs yarn start
-
+docker-compose up -d
 ```
+
+UI: http://localhost:3000/
+
 
 ### Create Job
 

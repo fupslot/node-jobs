@@ -175,6 +175,7 @@ const CreateJob = () => {
     api
       .createJob({ jobType, jobRule })
       .then((job) => {
+        setNewJobError(null);
         setJobType("none");
       })
       .catch((error) => setNewJobError(error));
