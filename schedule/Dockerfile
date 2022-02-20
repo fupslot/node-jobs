@@ -4,10 +4,11 @@ WORKDIR /schedule
 
 COPY package.json .
 RUN yarn install
+RUN npm install -g nodemon
 
 COPY . .
 
 ENV PORT=5000
-EXPOSE $PORT
+EXPOSE $PORT 9999
 
-CMD [ "node", "index.js" ]
+CMD [ "nodemon", "--inspect=0.0.0.0:9999", "./index.js" ]

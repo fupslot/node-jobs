@@ -5,6 +5,9 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./schedule
+    volumes:
+      - /schedule/node_modules
+      - ./schedule:/schedule
     ports:
       - '5000:5000'
   ui:
