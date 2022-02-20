@@ -1,9 +1,17 @@
-const express = require("express")
+const express = require("express");
+const cors = require("cors");
 
-const app = express()
+const app = express();
 
-app.set("strict routing", true)
-app.set("query parser", false)
-app.use(express.json({ "strict": true }))
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
-module.exports = app
+app.set("strict routing", true);
+app.set("query parser", false);
+app.use(express.json({ strict: true }));
+
+module.exports = app;
