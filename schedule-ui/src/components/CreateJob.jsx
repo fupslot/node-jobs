@@ -61,14 +61,15 @@ const ConfirmButton = () => {
 };
 
 const ScheduledJobs = ({ jobs }) => {
-  if (jobs.lenght == 0) {
-    return <h3>No Scheduled Jobs</h3>;
-  }
   return (
-    <div>
-      {jobs.map(({ jobId }) => {
-        return <div>{jobId}</div>;
-      })}
+    <div className="mt-8">
+      {jobs && jobs.length != 0 ? (
+        jobs.map(({ jobId }) => {
+          return <div>{jobId}</div>;
+        })
+      ) : (
+        <h3 className="font-bold">No Scheduled Jobs</h3>
+      )}
     </div>
   );
 };
@@ -82,19 +83,21 @@ const CreateJob = () => {
   };
 
   return (
-    <div className="flex flex-col bg-slate-50 w-2/4 p-4 border border-slate-300 rounded-md">
-      <h3 className="text-xl font-bold pb-1">Create Job</h3>
-      <hr />
-      <form
-        onSubmit={onFormSubmit}
-        className="bg-blue-100 overflow-auto space-y-2"
-      >
-        <CroneRule />
-        <JobType />
-        <ConfirmButton />
-      </form>
+    <>
+      <div className="flex flex-col bg-slate-50 w-2/4 p-4 border border-slate-300 rounded-md">
+        <h3 className="text-xl font-bold pb-1">Create Job</h3>
+        <hr />
+        <form
+          onSubmit={onFormSubmit}
+          className="bg-blue-100 overflow-auto space-y-2"
+        >
+          <CroneRule />
+          <JobType />
+          <ConfirmButton />
+        </form>
+      </div>
       <ScheduledJobs jobs={scheduledJobs} />
-    </div>
+    </>
   );
 };
 
