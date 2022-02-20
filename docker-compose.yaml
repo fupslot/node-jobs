@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  schedule:
+    container_name: schedule 
+    build:
+      dockerfile: Dockerfile
+      context: ./schedule
+    ports:
+      - '5000:5000'
+  ui:
+    container_name: ui 
+    build:
+      dockerfile: Dockerfile
+      context: ./schedule-ui
+    volumes:
+      - /schedule-ui/node_modules
+      - ./schedule-ui:/schedule-ui
+    environment:
+      - BASE_URL=http://schedule:5000
+    ports:
+      - '3000:3000'
