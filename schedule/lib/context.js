@@ -21,11 +21,11 @@ class Context {
   async createJob({ type, rule }) {
     const jobId = `job-${Date.now()}`;
 
-    if (!cronValidator.isValidCron(rule, { seconds: true })) {
+    if (!rule || !cronValidator.isValidCron(rule, { seconds: true })) {
       return Promise.reject(new Error(`Invalid Cron rule "${rule}"`));
     }
 
-    if (!tasks.isValidType(type)) {
+    if (!type || !tasks.isValidType(type)) {
       return Promise.reject(new Error(`Invalid Job type "${type}"`));
     }
 

@@ -755,6 +755,11 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+humanize-duration@^3.27.1:
+  version "3.27.1"
+  resolved "https://registry.yarnpkg.com/humanize-duration/-/humanize-duration-3.27.1.tgz#2cd4ea4b03bd92184aee6d90d77a8f3d7628df69"
+  integrity sha512-jCVkMl+EaM80rrMrAPl96SGG4NRac53UyI1o/yAzebDntEY6K6/Fj2HOjdPg8omTqIe5Y0wPBai2q5xXrIbarA==
+
 import-fresh@^3.2.1:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-3.3.0.tgz#37162c25fcb9ebaa2e6e53d5b4d88ce17d9e0c2b"

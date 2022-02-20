@@ -28,3 +28,5 @@ export const useHttp = (url) => {
 
   return [data, isFetching, isError];
 };
+
+export const useJobTypes = () => useHttp("/jobs/types/");

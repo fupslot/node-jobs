@@ -1,7 +1,7 @@
-const jobs = require("./jobs");
+const ctx = require("./context");
 
 const getAllJobs = async (req, res) => {
-  const data = await jobs.getAllJobs();
+  const data = await ctx.getState();
 
   res.json({ data });
 };
